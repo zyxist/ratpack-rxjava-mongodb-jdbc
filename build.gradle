@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.ratpack:ratpack-gradle:1.5.4"
+    }
+}
+
+plugins {
+    id 'io.franzbecker.gradle-lombok' version '1.14'
+}
+
+group 'com.zyxist.example'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'application'
+apply plugin: 'idea'
+apply plugin: 'io.ratpack.ratpack-java'
+
+sourceCompatibility = 1.8
+mainClassName = 'com.zyxist.example.reactivex.DemoApp'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.14'
+    compile 'org.hibernate:hibernate-entitymanager:5.4.0.Final'
+    compile 'org.mongodb:mongodb-driver-reactivestreams:1.8.0'
+
+    runtime 'org.hibernate:hibernate-c3p0:5.4.0.Final'
+    runtime 'org.hsqldb:hsqldb:2.4.1'
+}
